@@ -1,0 +1,20 @@
+<template>
+    
+    <li role="presentation" class="slds-listbox__item" onclick={handleSelect}>
+        <div class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+        <span class="slds-media__figure slds-listbox__option-icon">
+            <span class="slds-icon_container" title="Icon">
+                <lightning-icon icon-name={iconName} size="small"></lightning-icon>
+                <span class="slds-assistive-text">Icon</span>
+              </span>
+        </span>
+        <span class="slds-media__body">
+        <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+        <span>
+        {value}</span>
+        </span>
+        </span>
+        </div>
+        </li>
+  
+</template>

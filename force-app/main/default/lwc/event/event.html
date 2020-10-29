@@ -1,0 +1,19 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Event Infomartion" >
+        <div class="slds-m-around_small">
+            <lightning-input type="text" variant="standard" name="Name__c" label="Name" onchange={handleInput}></lightning-input>
+            <lightning-input type="datetime" variant="standard" name="Start_DateTime__c" label="Start Date" onchange={handleInput}></lightning-input>
+            <lightning-input type="datetime" variant="standard" name="End_Date_Time__c" label="End Date" onchange={handleInput}></lightning-input>
+            <lightning-input type="number" variant="standard" name="Max_Seats__c" label="Max Attendee" onchange={handleInput}></lightning-input>
+            <lightning-input-rich-text 
+            placeholder="Type something interesting"
+            name="Event Details"
+            label="Event Details" onchange={handleInput}>
+            </lightning-input-rich-text>
+            <c-search-demo record-name="Event_Organizer__c" icon-name="standard:people" field-name="Name" onselect={handleSelect}></c-search-demo>
+            <c-search-demo record-name="Location__c" icon-name="standard:location" field-name="Name"  onselect={handleSelect}></c-search-demo>
+
+        </div>
+        <lightning-button variant="brand" label="Save" title="Save" onclick={handleClick}></lightning-button>
+    </lightning-card>
+</template>

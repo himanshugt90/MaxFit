@@ -1,0 +1,49 @@
+<template>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+                <template if:false={selectedRecordId}>
+            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox">
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+              <c-search-box-component onsearch={handleOnSearch} record-name={recordName}></c-search-box-component>
+            
+            </div>
+            <template if:true={records}>
+            <div id="listbox-id-4" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+            <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                <template for:each={records} for:item="rec">
+            
+                <c-seacrh-record-list-component key={rec.key} id={rec.key} value={rec.value} icon-name={iconName} onselect={handleSelect} ></c-seacrh-record-list-component> 
+                </template>
+            
+            
+            </ul>
+            </div>
+        </template>
+            </div>
+        </template>
+        <template if:true={selectedRecordId}>
+        <label class="slds-form-element__label" for="combobox-id-1">{recordName}</label>
+
+        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right" role="none">
+            <span class="slds-icon_container slds-icon slds-icon_small slds-icon-standard-account slds-combobox__input-entity-icon" title="Account">
+                <lightning-icon icon-name={iconName} size="small"></lightning-icon>
+
+                <span class="slds-assistive-text"></span>
+            </span>
+            <input type="text" class="slds-input slds-combobox__input slds-combobox__input-value" id="combobox-id-5" aria-controls="listbox-id-5" autocomplete="off" role="textbox" placeholder="Select an Option…" readonly="" value={selectedRecordVal}
+            />
+            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right slds-icon slds-button__icon slds-button__icon_small" title="Remove selected option" onclick={handleRemove}>
+                <lightning-icon icon-name="action:remove" size="small"></lightning-icon>
+
+            <span class="slds-assistive-text">Remove selected option</span>
+            </button>
+            </div>
+            </div>
+        </template>
+            </div>
+            </div>
+            </div>
+   
+</template>
